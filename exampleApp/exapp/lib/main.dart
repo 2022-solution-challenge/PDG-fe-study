@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'classMake.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<User> fetchPost() async {
+  final response = await http.get('https://jsonplaceholder.typicode.com/posts/1');
+
+  if (response.statusCode == 200) {
+    // 만약 서버로의 요청이 성공하면, JSON을 파싱합니다.
+    return User.fromJson(json.decode(response.body));
+  } else {
+    // 만약 요청이 실패하면, 에러를 던집니다.
+    throw Exception('Failed to load post');
+  }
+}
 
 void main() {
   runApp(MyApp());
@@ -29,16 +44,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
     
+  Future<User>? user;
+
+  @override
+  void initState(){
+    super.initState();
+    user = fetchPost();
+  }
 
   @override
   Widget build(BuildContext context) {
     
 
+
+    
     //User Data제작
-    User user1 = User(1,1,"title1","body1");
-    User user2 = User(1,1,"title2","body2");
-    User user3 = User(1,1,"title3","body3");
-    final List<User> users = <User>[user1,user2,user3];
 
 
     //텍스트 스타일
