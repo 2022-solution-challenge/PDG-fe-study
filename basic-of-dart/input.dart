@@ -11,8 +11,8 @@ main(){
 
   //check the type
   print(name.runtimeType);
-  
+
   //print the variable with dollor($) sign
-  print('Your name is $name');  
+  print('Your name is $name');
 
 }
