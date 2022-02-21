@@ -1,12 +1,17 @@
 
 class User {
-  final int? user_id;
-  final int? id;
-  final String? title;
-  final String? body;
+  final int user_id;
+  final int id;
+  final String title;
+  final String body;
 
-  User({this.user_id, this.id, this.title, this.body});
-
+  const User({
+    required this.user_id,
+    required this.id,
+    required this.title,
+    required this.body,
+  });
+  
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       user_id: json['userId'],
