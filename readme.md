@@ -1,6 +1,4 @@
-## Dart Stduy 권효재
-## 1x
-
+## Dart & Flutter Stduy 권효재
 
 ## references
 
