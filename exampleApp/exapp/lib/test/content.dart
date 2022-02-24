@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'classMake.dart';
+import '../classMake.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-// import './test.json';
+import 'package:flutter/material.dart';
 
 
-// Future<User> fetchPost() async {
-//   final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/comments?postId=1'));
-//   // print(jsonDecode(response.body));
-//   if (response.statusCode == 200) {
-//     // 만약 서버로의 요청이 성공하면, JSON을 파싱합니다.
-//     return User.fromJson(jsonDecode(response.body));
-//   } else {
-//     // 만약 요청이 실패하면, 에러를 던집니다.
-//     throw Exception('Failed to load post');
-//   }
-// }
-
-
-//api get
 Future<String> getName(String name) async{
   String newUrl = 'https://solution-challenge-hb6fjqbi3q-du.a.run.app/user/'+name;
   final response = await http.get(Uri.parse(newUrl));
@@ -33,33 +19,8 @@ Future<String> getName(String name) async{
   }
 }
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class Content extends StatelessWidget {
     
   late Future<User> futureUser;
   final myController = TextEditingController();
@@ -130,5 +91,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 }
-
-//위젯 단위로 붐리해서 impoert
