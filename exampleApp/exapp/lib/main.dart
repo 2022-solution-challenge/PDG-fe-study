@@ -37,15 +37,54 @@ class MyHomePage extends StatelessWidget {
       //body에 Padding 지정
       body:  Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('hello'),
-              Text('Second data'),
+              Text('Second data',
+              style: TextStyle(
+                color: Colors.amber[800],
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold
+                ),
+              ),
               Text('hi from flutter'),
+              SizedBox(
+                height: 30.0,
+              ),
+              Text('Second data',
+              style: TextStyle(
+                color: Colors.amber[800],
+                letterSpacing: 2.0,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold
+                ),
+              ),
+              Divider(
+                height: 60.0,
+                color: Colors.grey[850],
+                thickness: 0.5,
+                endIndent: 30.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(Icons.check_circle_outline),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text('using lightsaber',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    letterSpacing: 1.0,
+                  ),
+                  ),
+                ],
+              )
             ],
           ),
       ),
         
     );
   }
-}
+} 
