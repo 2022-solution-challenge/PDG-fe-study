@@ -29,16 +29,23 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('first Text'),
+        centerTitle: true,
+        backgroundColor: Colors.cyan,
+        elevation: 0.0,
       ),
-      body: Center(
+
+      //body에 Padding 지정
+      body:  Center(
         child: Column(
-          children: <Widget>[
-            Text('hello'),
-            Text('hello'),
-            Text('hello'),
-          ],
-        ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('hello'),
+              Text('Second data'),
+              Text('hi from flutter'),
+            ],
+          ),
       ),
+        
     );
   }
 }
