@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(Myapp);
+void main() => runApp(MyApp());
+
 
 class MyApp extends StatefulWidget{
 
+
+  @override
+  MyAppState createState() => MyAppState();
+  
 }
 
 class MyAppState extends State<MyApp>{
-  late String name;
+  late String name = "";
 
   final myController = TextEditingController();
   
-  
   @override
-  Widget bulid(BuildContext context){
-
+  Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
         appBar: AppBar(),
+
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('enter your name'),
+
               TextField(
                 decoration: InputDecoration(
                   alignLabelWithHint: true,
@@ -34,22 +39,29 @@ class MyAppState extends State<MyApp>{
                 ),
                 controller: myController,
               ),
+
               FloatingActionButton(
-                onPressed: (() => {
-                  name = myController.text
-                } 
+                onPressed: () {
+                  setState((){
+                    name = myController.text;
+                  });
+                },
               ),
-              
+
+              Text(
+                'hello $name'
+              ),  
             ],
           ),
         ),
       ),
-    )
+    );
+    throw UnimplementedError();
+    
   }
 
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
+
+
+
+ 
 }
