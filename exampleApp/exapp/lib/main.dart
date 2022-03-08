@@ -4,9 +4,26 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:geolocator/geolocator.dart';
 void main() {
-  runApp(MapSample());
+  runApp(MyApp());
 }
  
+ class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Google Maps',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MapSample(),
+    );
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
+
+ }
 
 class MapSample extends StatefulWidget {
   const MapSample({Key? key}) : super(key: key);
@@ -29,13 +46,18 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context){
     // ignore: sized_box_for_whitespace
-    return 
-    MaterialApp(
-      home: Container(
-      // width: MediaQuery.of(context).size.width,
+    final med = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Google Maps test'),
+        elevation: 0.0,
+        toolbarHeight: 50,
+      ),
+      body: Container(
+      width: med.width,
       // height: MediaQuery.of(context).size.height,
-      width : 300,
-      height: 300,
+      // width : 300,
+      height: med.height,
       child: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: LatLng(
@@ -47,6 +69,7 @@ class MapSampleState extends State<MapSample> {
       ),
       ),
     );
+    
   }
 
 }
