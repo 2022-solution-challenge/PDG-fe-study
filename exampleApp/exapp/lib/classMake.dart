@@ -1,4 +1,3 @@
-
 class User {
   final int user_id;
   final int id;
